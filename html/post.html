@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- TODO: Include Font Awesome file here -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- TODO: Include Google Fonts file here -->
+    <link href="https://fonts.googleapis.com/css?family=Montez&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+
+    <link href='../styles/post.css' rel='stylesheet' type='text/css'>
+    <link href='../styles/common.css' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <div class="header">
+        <div class="signB">
+            <button class="btn" id="si">Sign In</button>
+            <button class="btn" id="su">Sign Up</button>
+        </div>
+        <div class="heading1">
+            ScriBBler
+        </div>
+        <div class="heading2">
+            Explore. Imagine. Create
+        </div>
+    </div>
+    
+
+    <div class="blogContent">
+        <div id="blogTitle" class="blogTite">
+            <h id="blogTitleNew">Everything you should know about ‘module’ & ‘require’ in Node.js</h>
+            <center><textarea id="titleArea" style="display: none; width: 247px;font-size: 16.5px"></textarea></center>
+        </div>
+
+        <div class="blogAuthor">
+
+            <p>Srishti Gupta</p>
+            <a href=# id="edit" onclick="changeText()">
+                <div id="text"> Edit</div>
+                <div id="text2"><i class="fa fa-edit"></i></div>
+            </a>
+        </div>
+
+        <div class="blogText">
+            <p id="blogBody">
+                Node.js treats each JavaScript file as a separate module. For instance: if you have a file containing some code and this file is named xyz.js: then this file is treated as a module in Node, and you
+can say that you've created a module named xyz Let's take an example to understand this better. You have a file named circle.js which consists of the logic for calculating the area & the
+circumference of a circle of a given radius. You can call circle.js file a module named circle. You might be wondering why is there a need to have multiple modules? You could have just
+written all the code m a single module. Well: it is very important to write modular code. By modular: I mean to say that your code should be independent and should be loosely coupled.
+Imagme that there's a large application and you have all your code Ivritten injust one place: just one file. Too messy: right? How does the code written inside a module run? Before executing
+the code v,Titten inside a module: Node takes the entire code and encloses it within a function Ivrapper. The syntax of this function wrapper is: The entire code v,Titten inside a module is
+private to the module, unless explicitly stated (exported) othemvise. This is the most significant advantage of having modules in Node.js. Even if you define a global variable in a module using
+var: let or const keywords: the variables are scoped locally to the module rather than bemg scoped globally. This happens because each module has a function wrapper of Its oun and the code
+written inside one function is local to that function and cannot be accessed outside this function. Imagine that there are two modules — A and B. The code 'Mitten inside the module A is
+enclosed wlthm the function wrapper corresponding to the module A. Similar thing happens With the code 'Mitten inside the module B. Because the code pertammg to both the modules is
+enclosed within different functions: these functions Will not be able to access the code of each other. (Remember each function in JavaScript has its own local scope?) This is the reason why
+moduleA cannot access the code 'Mitten inside module B and vice-versa. The five parameters — exports: require: module: filename: .dlrname are available inside each module in Node.
+Though these parameters are global to the code within a module yet they are local to the module (because of the function Ivrapper as explained above). These parameters provide valuable
+information related to a module. Let's revisit the circle module: which you looked at earller. There are three constructs defined m this module — a constant variable PI, a function named
+calculateArea and another function named calculateC1rcumference. An Important point to keep m mmd is that all these constmcts are private to the circle module by default. It means that you
+cannot use these constructs in any other module unless explicitly specified. So: the question that anses now is how do you specify something in a module that can be used by some other
+module? This is when the module & require parameters of the function wrapper are helpful. Let's discuss these two parameters in this afflcle. module The module parameter (rather a keyword
+in a module in Node) refers to the object representmg the current module. exports is a key of the module object: the correspondmg value of which is an object. The default value of
+module.exports object is { } (empty object). You can check this by logging the value of module keyword inside any module. Let's check what is the value of module parameter inside the circle
+module. Notice that there is a console.log(module); statement at the end of the code in the file given above. When you see the output. It Ivill log the module object, v,'hich has a key named
+exports and the value correspondmg to this key is { } (an empty object). Now: what does the module.exports object do? Well: it is used for defining stuff that can be exported by a module.
+u•hatever is exported from a module can: m turn: be made available to other modules. Exporting somethmg is quite easy. You just need to add It to the module.exports object. There are three
+ways to add somethmg to the module.exports object to be exported. Let's discuss these methods one by one.
+            </p>
+            <textarea id="textarea" style="display: none"></textarea>
+        </div>
+
+        <a href=# onclick="liker()" id="edit" style="width: 90px">
+            <div id="text"><i class="fa fa-thumbs-up"></i></div>
+            <div id="text2" class="likeText">Like</div>
+        </a>
+        <p id="like">Be the first one to like this!</p>
+        <div id="commentBox" style="display: none">
+            <textarea id="cmntText" placeholder="Leave a comment..." style="height: 85px; width: 40%"></textarea><br>
+            <button onclick="cmnt()">Comment</button>
+            <B>
+                <p>All Comments</p>
+            </B>
+            <div id="commentArea"
+                style="width: 45%; background-color: darkgray; height: auto; padding: 10px ;display: none">
+            </div>
+        </div>
+        <p id="temp" style="display: none;"><i class="fa fa-save"></i></p>
+        <p id="temp2" style="display: none;"><i class="fa fa-edit"></i></p>
+        <script src="../scripts/post.js" defer></script>
+        <script src="../scripts/common.js">
+        </script>
+
+</body>
+
+</html>
